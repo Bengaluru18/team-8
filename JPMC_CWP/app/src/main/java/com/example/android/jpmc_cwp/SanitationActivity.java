@@ -12,12 +12,15 @@ import android.widget.Toast;
 public class SanitationActivity extends AppCompatActivity {
 
     EditText ed1,ed2,ed3,ed4,ed5,ed6;
+    int DISE;
     SQLiteDatabase db;
     Button b1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sanitation);
+        Intent intent = getIntent();
+        DISE = intent.getIntExtra("DISE_Code",0);
         ed1=(EditText)findViewById(R.id.editText);
         ed2=(EditText)findViewById(R.id.editText2);
         ed3=(EditText)findViewById(R.id.editText3);
@@ -42,7 +45,8 @@ public class SanitationActivity extends AppCompatActivity {
                     db.execSQL("insert into  sanitary values('"+ed1.getText().toString()+"','"+ed2.getText().toString()+"', '"+ed3.getText().toString()+"', '"+ed4.getText().toString()+"', '"+ed5.getText().toString()+"', '"+ed6.getText().toString()+"');");
                     Toast.makeText(getApplicationContext(),"Inserted Computer Lab Details successfully",Toast.LENGTH_LONG).show();
                 }
-                startActivity(new Intent(SanitationActivity.this,Main2Activity.class));
+                Intent i = new Intent(SanitationActivity.this,Main2Activity.class);
+                startActivity(i);
             }
         });
     }

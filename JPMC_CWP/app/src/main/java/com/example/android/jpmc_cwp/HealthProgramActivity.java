@@ -1,14 +1,28 @@
 package com.example.android.jpmc_cwp;
 
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.Toast;
+
 
 public class HealthProgramActivity extends AppCompatActivity {
 
+    SQLiteDatabase db;
+    Spinner s1,s2,s3,s4,s5,s6;
+    Button b;
+    int DISE;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_health_program);
+        Intent intent = getIntent();
+        DISE = intent.getIntExtra("DISE_Code",0);
 		db=openOrCreateDatabase("cwf.db",MODE_PRIVATE,null);
         db.execSQL("create table if not exists healthprogram(genaralCamp varchar(10),dentalCamp varchar(10),eyeCamp varchar(10),folic varchar(10),vitaminA varchar(10),deWorming varchar(10))");
         s1= (Spinner)findViewById(R.id.spinner);

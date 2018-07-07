@@ -13,11 +13,15 @@ import android.widget.Toast;
 public class LibraryActivity extends AppCompatActivity {
     EditText ed1,ed2,ed3,ed4,ed5,ed6;
     SQLiteDatabase db;
+    int DISE;
     Button b1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library);
+
+        Intent intent = getIntent();
+        DISE = intent.getIntExtra("DISE_Code",0);
 
         ed1=(EditText)findViewById(R.id.editText);
         ed2=(EditText)findViewById(R.id.editText2);

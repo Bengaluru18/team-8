@@ -13,12 +13,14 @@ public class ComputerLabActivity extends AppCompatActivity {
 
     EditText ed1,ed2,ed3,ed4,ed5,ed6;
     SQLiteDatabase db;
+    int DISE;
     Button b1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_computer_lab);
-
+        Intent intent = getIntent();
+        DISE = intent.getIntExtra("DISE_Code",0);
         ed1=(EditText)findViewById(R.id.editText);
         ed2=(EditText)findViewById(R.id.editText2);
         ed3=(EditText)findViewById(R.id.editText3);
@@ -30,7 +32,7 @@ public class ComputerLabActivity extends AppCompatActivity {
 
 
         db=openOrCreateDatabase("cwf.db",MODE_PRIVATE,null);
-        db.execSQL("create table if not exists computerlab(computers varchar(10),ups varchar(10), comptables varchar(10) , compchairs varchar(10), projector varchar(10), renovation varchar(50))");
+        db.execSQL("create table if not exists computerlab(computers varchar(10),ups varchar(10), comptables varchar(10) , compchairs varchar(10), projector varchar(10), renovation varchar(50), dise integer primary key)");
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
