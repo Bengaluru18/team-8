@@ -1,10 +1,9 @@
 package com.example.android.jpmc_cwp;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,7 +33,7 @@ public class LibraryActivity extends AppCompatActivity {
 
 
         db=openOrCreateDatabase("cwf.db",MODE_PRIVATE,null);
-        db.execSQL("create table if not exists library(booksarranged varchar(10), books varchar(10), closedcupboards varchar(10) , opencupboards varchar(10), tables varchar(10), chairs varchar(10))");
+        db.execSQL("create table if not exists library(dise integer primary key,booksarranged varchar(10), books varchar(10), closedcupboards varchar(10) , opencupboards varchar(10), tables varchar(10), chairs varchar(10))");
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,7 +43,7 @@ public class LibraryActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    db.execSQL("insert into  library values('"+ed1.getText().toString()+"','"+ed2.getText().toString()+"', '"+ed3.getText().toString()+"', '"+ed4.getText().toString()+"', '"+ed5.getText().toString()+"', '"+ed6.getText().toString()+"');");
+                    db.execSQL("insert into  library values('"+ DISE + "','"+ ed1.getText().toString()+"','"+ed2.getText().toString()+"', '"+ed3.getText().toString()+"', '"+ed4.getText().toString()+"', '"+ed5.getText().toString()+"', '"+ed6.getText().toString()+"');");
                     Toast.makeText(getApplicationContext(),"Inserted Library Details successfully",Toast.LENGTH_LONG).show();
                 }
                 startActivity(new Intent(LibraryActivity.this,Main2Activity.class));

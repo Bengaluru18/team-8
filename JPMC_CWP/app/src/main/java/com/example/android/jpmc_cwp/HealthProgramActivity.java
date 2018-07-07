@@ -24,7 +24,7 @@ public class HealthProgramActivity extends AppCompatActivity {
         Intent intent = getIntent();
         DISE = intent.getIntExtra("DISE_Code",0);
 		db=openOrCreateDatabase("cwf.db",MODE_PRIVATE,null);
-        db.execSQL("create table if not exists healthprogram(genaralCamp varchar(10),dentalCamp varchar(10),eyeCamp varchar(10),folic varchar(10),vitaminA varchar(10),deWorming varchar(10))");
+        db.execSQL("create table if not exists healthprogram(dise integer primary key, genaralCamp varchar(10),dentalCamp varchar(10),eyeCamp varchar(10),folic varchar(10),vitaminA varchar(10),deWorming varchar(10))");
         s1= (Spinner)findViewById(R.id.spinner);
         s2= (Spinner)findViewById(R.id.spinner2);
         s3= (Spinner)findViewById(R.id.spinner3);
@@ -46,7 +46,7 @@ public class HealthProgramActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     //String s=s1.getSelectedItem().toString();
 
-                    db.execSQL("insert into healthprogram values('" + s1.getSelectedItem().toString() + "','" + s2.getSelectedItem().toString() + "','" + s4.getSelectedItem().toString() + "','" + s5.getSelectedItem().toString() + "','" + s6.getSelectedItem().toString() + "','" + s3.getSelectedItem().toString() + "');");
+                    db.execSQL("insert into healthprogram values('" + DISE + "','" + s1.getSelectedItem().toString() + "','" + s2.getSelectedItem().toString() + "','" + s4.getSelectedItem().toString() + "','" + s5.getSelectedItem().toString() + "','" + s6.getSelectedItem().toString() + "','" + s3.getSelectedItem().toString() + "');");
                     Toast.makeText(getApplicationContext(),"succesfully inserted", Toast.LENGTH_LONG).show();
                 }
             });

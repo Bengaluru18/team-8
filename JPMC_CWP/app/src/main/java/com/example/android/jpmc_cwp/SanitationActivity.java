@@ -32,7 +32,7 @@ public class SanitationActivity extends AppCompatActivity {
 
 
         db=openOrCreateDatabase("cwf.db",MODE_PRIVATE,null);
-        db.execSQL("create table if not exists sanitary(toiletb varchar(10),urinalb varchar(10), toiletg varchar(10) , urinalg varchar(10), toiletcw varchar(10), toiletst varchar(50))");
+        db.execSQL("create table if not exists sanitary(dise integer primary key,toiletb varchar(10),urinalb varchar(10), toiletg varchar(10) , urinalg varchar(10), toiletcw varchar(10), toiletst varchar(50))");
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,7 +42,7 @@ public class SanitationActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    db.execSQL("insert into  sanitary values('"+ed1.getText().toString()+"','"+ed2.getText().toString()+"', '"+ed3.getText().toString()+"', '"+ed4.getText().toString()+"', '"+ed5.getText().toString()+"', '"+ed6.getText().toString()+"');");
+                    db.execSQL("insert into  sanitary values('"+ DISE+"','"+ed1.getText().toString()+"','"+ed2.getText().toString()+"', '"+ed3.getText().toString()+"', '"+ed4.getText().toString()+"', '"+ed5.getText().toString()+"', '"+ed6.getText().toString()+"');");
                     Toast.makeText(getApplicationContext(),"Inserted Computer Lab Details successfully",Toast.LENGTH_LONG).show();
                 }
                 Intent i = new Intent(SanitationActivity.this,Main2Activity.class);
