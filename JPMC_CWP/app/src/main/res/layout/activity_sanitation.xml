@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.android.jpmc_cwp.SanitationActivity"
-    android:background="#f0f4c3">
+    android:background="#ffffff">
     <EditText
         android:id="@+id/editText"
         android:layout_width="wrap_content"
@@ -86,6 +86,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:textStyle="bold"
+        android:background="#03DAC5"
         android:text="Submit" />
 
     <TextView

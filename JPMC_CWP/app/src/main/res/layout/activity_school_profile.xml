@@ -83,6 +83,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
+                android:backgroundTint="#03DAC5"
                 android:background="@android:drawable/btn_dropdown"
                 android:spinnerMode="dropdown" />
         </LinearLayout>
@@ -134,6 +135,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
+                android:backgroundTint="#03DAC5"
                 android:background="@android:drawable/btn_dropdown"
                 android:spinnerMode="dropdown" />
         </LinearLayout>
@@ -154,6 +156,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
+                android:backgroundTint="#03DAC5"
                 android:background="@android:drawable/btn_dropdown"
                 android:spinnerMode="dropdown" />
         </LinearLayout>
@@ -174,6 +177,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
+                android:backgroundTint="#03DAC5"
                 android:background="@android:drawable/btn_dropdown"
                 android:spinnerMode="dropdown" />
         </LinearLayout>
@@ -263,9 +267,12 @@
         </LinearLayout>
         <Button
             android:id="@+id/submit"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Submit"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:background="#03DAC5"
             />
     </LinearLayout>
 
