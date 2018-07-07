@@ -4,6 +4,126 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.android.jpmc_cwp.HealthProgramActivity">
+    tools:context=".MainActivity">
 
+    <Spinner
+        android:id="@+id/spinner3"
+        android:layout_width="102dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/spinner6"
+        android:layout_toEndOf="@+id/textView" />
+
+    <Spinner
+        android:id="@+id/spinner6"
+        android:layout_width="102dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/spinner5"
+        android:layout_toEndOf="@+id/textView" />
+
+    <Spinner
+        android:id="@+id/spinner5"
+        android:layout_width="102dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/textView5"
+        android:layout_toEndOf="@+id/textView" />
+
+    <Spinner
+        android:id="@+id/spinner4"
+        android:layout_width="102dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/textView3"
+        android:layout_toEndOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="173dp"
+        android:layout_height="45dp"
+        android:layout_alignStart="@+id/textView"
+        android:layout_alignTop="@+id/spinner3"
+        android:text="De Worming" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="173dp"
+        android:layout_height="45dp"
+        android:layout_above="@+id/spinner3"
+        android:layout_alignStart="@+id/textView"
+        android:text="Vitamin A" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="173dp"
+        android:layout_height="45dp"
+        android:layout_alignStart="@+id/textView"
+        android:layout_below="@+id/textView5"
+        android:text="Folic Medicine" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="173dp"
+        android:layout_height="45dp"
+        android:layout_alignStart="@+id/textView"
+        android:layout_below="@+id/textView3"
+        android:text="Eye Camp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="173dp"
+        android:layout_height="45dp"
+        android:layout_alignStart="@+id/textView"
+        android:layout_below="@+id/textView"
+        android:text="Dental Camp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="173dp"
+        android:layout_height="45dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="63dp"
+        android:text="Genaral camp" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="102dp"
+        android:layout_height="45dp"
+        android:layout_alignTop="@+id/textView"
+        android:layout_toEndOf="@+id/textView" />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="102dp"
+        android:layout_height="45dp"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_toEndOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="133dp"
+        android:text="Submit" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="275dp"
+        android:layout_height="34dp"
+        android:layout_above="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:layout_marginBottom="-63dp"
+        android:text="Treatement Care"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="273dp"
+        android:layout_height="36dp"
+        android:layout_alignStart="@+id/textView"
+        android:layout_centerVertical="true"
+        android:text="Medicines given"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button" />
 </RelativeLayout>
