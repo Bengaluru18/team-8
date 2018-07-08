@@ -32,7 +32,7 @@ public class LibraryActivity extends AppCompatActivity {
         b1=(Button)findViewById(R.id.button);
 
 
-        db=openOrCreateDatabase("cwf.db",MODE_PRIVATE,null);
+        db=openOrCreateDatabase("cwf2.db",MODE_PRIVATE,null);
         db.execSQL("create table if not exists library(dise integer primary key,booksarranged varchar(10), books varchar(10), closedcupboards varchar(10) , opencupboards varchar(10), tables varchar(10), chairs varchar(10))");
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +45,7 @@ public class LibraryActivity extends AppCompatActivity {
                 {
                     db.execSQL("insert into  library values('"+ DISE + "','"+ ed1.getText().toString()+"','"+ed2.getText().toString()+"', '"+ed3.getText().toString()+"', '"+ed4.getText().toString()+"', '"+ed5.getText().toString()+"', '"+ed6.getText().toString()+"');");
                     Toast.makeText(getApplicationContext(),"Inserted Library Details successfully",Toast.LENGTH_LONG).show();
+
                 }
                 startActivity(new Intent(LibraryActivity.this,Main2Activity.class));
             }

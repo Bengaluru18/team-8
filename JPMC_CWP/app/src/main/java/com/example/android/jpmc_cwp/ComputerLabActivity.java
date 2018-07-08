@@ -30,8 +30,7 @@ public class ComputerLabActivity extends AppCompatActivity {
 
         b1=(Button)findViewById(R.id.button);
 
-
-        db=openOrCreateDatabase("cwf.db",MODE_PRIVATE,null);
+        db=openOrCreateDatabase("cwf2.db",MODE_PRIVATE,null);
         db.execSQL("create table if not exists computerlab(dise integer primary key,computers varchar(10),ups varchar(10), comptables varchar(10) , compchairs varchar(10), projector varchar(10), renovation varchar(50))");
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,12 +39,15 @@ public class ComputerLabActivity extends AppCompatActivity {
                 {
                     Toast.makeText(getApplicationContext(),"You haven't entered details completely.",Toast.LENGTH_LONG).show();
                 }
+                
                 else
                 {
                     db.execSQL("insert into  computerlab values('"+ DISE + "','" + ed1.getText().toString()+"','"+ed2.getText().toString()+"', '"+ed3.getText().toString()+"', '"+ed4.getText().toString()+"', '"+ed5.getText().toString()+"', '"+ed6.getText().toString()+"');");
-                    Toast.makeText(getApplicationContext(),"Inserted Computer Lab Details successfully",Toast.LENGTH_LONG).show();
+
+                    Toast.makeText(getApplicationContext(),"Inserted Computer Lab Details successfully "+ DISE,Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(ComputerLabActivity.this,Main2Activity.class));
                 }
-                startActivity(new Intent(ComputerLabActivity.this,Main2Activity.class));
+
             }
         });
 

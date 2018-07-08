@@ -20,7 +20,7 @@ public class SchoolProfileActivity extends AppCompatActivity {
     EditText editName, editAddress, editState, editTotalStudents, editSchoolDISE, editTotalTeachers;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        db = openOrCreateDatabase("cwf.db",MODE_PRIVATE,null);
+        db = openOrCreateDatabase("cwf2.db",MODE_PRIVATE,null);
         db.execSQL("create table if not exists schoolprofile(name varchar(30),locality varchar(30),address varchar(150), state varchar(30), totalclasses varchar(20), gender varchar(10), mediumofinstruction varchar(20), totalstudents integer, dise integer primary key, totalteachers integer)");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_school_profile);

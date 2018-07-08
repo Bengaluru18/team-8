@@ -1,6 +1,7 @@
 package com.example.android.jpmc_cwp;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,7 +32,8 @@ public class SanitationActivity extends AppCompatActivity {
         b1=(Button)findViewById(R.id.button);
 
 
-        db=openOrCreateDatabase("cwf.db",MODE_PRIVATE,null);
+
+        db=openOrCreateDatabase("cwf2.db",MODE_PRIVATE,null);
         db.execSQL("create table if not exists sanitary(dise integer primary key,toiletb varchar(10),urinalb varchar(10), toiletg varchar(10) , urinalg varchar(10), toiletcw varchar(10), toiletst varchar(50))");
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,10 +45,19 @@ public class SanitationActivity extends AppCompatActivity {
                 else
                 {
                     db.execSQL("insert into  sanitary values('"+ DISE+"','"+ed1.getText().toString()+"','"+ed2.getText().toString()+"', '"+ed3.getText().toString()+"', '"+ed4.getText().toString()+"', '"+ed5.getText().toString()+"', '"+ed6.getText().toString()+"');");
-                    Toast.makeText(getApplicationContext(),"Inserted Computer Lab Details successfully",Toast.LENGTH_LONG).show();
+                    String str = "Details are \n";
+                    Cursor c=db.rawQuery("select * from emp ",null);
+                    while (c.moveToNext()) {
+                        str+= c.getString(0) + "\n" + c.getString(1) + "\n";
+                    }
+                        Toast.makeText(getApplicationContext(),str,Toast.LENGTH_LONG).show();
+             //       Toast.makeText(getApplicationContext(),"Inserted Computer Lab Details successfully",Toast.LENGTH_LONG).show();
+                    //Intent i = new Intent(SanitationActivity.this,Main2Activity.class);
+                   // startActivity(i);
+
+
                 }
-                Intent i = new Intent(SanitationActivity.this,Main2Activity.class);
-                startActivity(i);
+
             }
         });
     }

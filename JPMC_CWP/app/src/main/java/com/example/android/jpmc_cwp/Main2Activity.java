@@ -30,13 +30,13 @@ public class Main2Activity extends AppCompatActivity {
                 case R.id.button:
                     startActivity(new Intent(Main2Activity.this, SchoolProfileActivity.class));
                     break;
-                case R.id.button2:
+                case R.id.button4:
                     startActivity(new Intent(Main2Activity.this, HealthProgramActivity.class).putExtra("DISE_Code",DISE));
                     break;
                 case R.id.button3:
                     startActivity(new Intent(Main2Activity.this, ComputerLabActivity.class).putExtra("DISE_Code",DISE));
                     break;
-                case R.id.button4:
+                case R.id.button2:
                     startActivity(new Intent(Main2Activity.this, SchoolEnvironmentActivity.class).putExtra("DISE_Code",DISE));
                     break;
                 case R.id.button5:
@@ -45,7 +45,9 @@ public class Main2Activity extends AppCompatActivity {
                 case R.id.button6:
                     startActivity(new Intent(Main2Activity.this, LibraryActivity.class).putExtra("DISE_Code",DISE));
                     break;
-
+                case R.id.button7:
+                finish();
+                    break;
 
 
             }
