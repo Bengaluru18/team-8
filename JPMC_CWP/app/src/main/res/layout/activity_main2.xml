@@ -1,101 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.android.jpmc_cwp.Main2Activity"
-    android:background="#bdbdbd">
+    android:background="#ffffff"
+    android:orientation="vertical"
+    tools:context="com.example.android.jpmc_cwp.Main2Activity">
 
 
     <Button
         android:id="@+id/button"
-        android:layout_width="150dp"
-        android:layout_height="120dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="31dp"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="23dp"
-        android:background="#b2dfdb"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#4DB6AC"
         android:onClick="btn"
-        android:textStyle="bold"
-        android:text="School Profile" />
+        android:text="School Profile"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="150dp"
-        android:layout_height="120dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/button"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
-        android:background="#b2dfdb"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#30CDAF"
         android:onClick="btn"
         android:text="School Environment"
-        android:textStyle="bold" />
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="150dp"
-        android:layout_height="120dp"
-        android:layout_alignLeft="@+id/button"
-        android:layout_alignStart="@+id/button"
-        android:layout_below="@+id/button"
-        android:layout_marginTop="22dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#4DB6AC"
         android:onClick="btn"
-        android:textStyle="bold"
-        android:background="#b2dfdb"
         android:text="Computer Lab"
-        />
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="150dp"
-        android:layout_height="120dp"
-        android:layout_alignBottom="@+id/button3"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_alignStart="@+id/button2"
-        android:layout_alignTop="@+id/button3"
-        android:textStyle="bold"
-        android:background="#b2dfdb"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:onClick="btn"
+        android:background="#30CDAF"
+        android:textColor="#FFFFFF"
         android:text="Health Program" />
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="150dp"
-        android:layout_height="120dp"
-        android:layout_alignLeft="@+id/button3"
-        android:layout_alignStart="@+id/button3"
-        android:layout_below="@+id/button3"
-        android:layout_marginTop="36dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#4DB6AC"
         android:onClick="btn"
-        android:background="#b2dfdb"
-        android:textStyle="bold"
-        android:text="Sanitation" />
+        android:text="Sanitation"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/button6"
-        android:layout_width="150dp"
-        android:layout_height="120dp"
-        android:textStyle="bold"
-        android:background="#b2dfdb"
-        android:layout_alignLeft="@+id/button4"
-        android:layout_alignStart="@+id/button4"
-        android:layout_alignTop="@+id/button5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#30CDAF"
         android:onClick="btn"
-        android:text="Library" />
+        android:text="Library"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/button7"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-    android:background="#ffccbc"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="Finish" />
-</RelativeLayout>
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#00695C"
+        android:onClick="btn"
+        android:text="Finish"
+        android:textColor="#FFFFFF" />
+</LinearLayout>
