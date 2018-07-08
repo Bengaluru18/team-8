@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Report</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/schl.css">
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-b-200 p-t-50">
+				
+					<span class="login100-form-title p-b-43 ">
+						 Management Report 
+					</span>
+					  <h4 class="">The report shows the bar graphs comparing the previous and the current datasets:</h4>            
+					  <script>
+						window.onload = function () {
+
+						var chart = new CanvasJS.Chart("chartContainer", {
+							animationEnabled: true,
+							theme: "light2", // "light1", "light2", "dark1", "dark2"
+							title: {
+								text: "Kendriya Vidyalaya"
+							},
+							axisY: {
+								title: "Growth Rate (in %)",
+								suffix: "%",
+								includeZero: false
+							},
+							axisX: {
+								title: "Area's of developement"
+							},
+							data: [{
+								type: "column",
+								yValueFormatString: "#,##0.0#\"%\"",
+								dataPoints: [
+									{ label: "School Profile", y: 7.1 },	
+									{ label: "School Env", y: 6.70 },	
+									{ label: "class Env", y: 5.00 },
+									{ label: "Health Prog", y: 2.50 },	
+									{ label: "Sanitation", y: 2.30 },
+								]
+							}]
+						});
+						chart.render();
+
+						}
+						</script>
+											  
+					  	<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Accept
+						</button>
+						</div>
+					
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Reject
+						</button>
+					</div>
+					
+				
+			</div>
+		</div>
+	</div>
+	<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+
+</body>
+</html>
