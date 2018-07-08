@@ -51,7 +51,7 @@ public class SanitationActivity extends AppCompatActivity {
                 if(cursor.moveToFirst())
                 {
                     do {
-                        str += "dise " +cursor.getString(0) + "\n" +"toiletb"+ cursor.getString(1) + "\n" + "urinalb"+cursor.getString(2) + "\n" +"toiletg"+ cursor.getString(3) + "\n" +"urinalg"+ cursor.getString(4) + "\n" +"toiletcw"+ cursor.getString(5) + "\n" +"toiletst"+cursor.getString(6);
+                        str += "dise  : " +cursor.getString(0) + "\n" +"toiletb : "+ cursor.getString(1) + "\n" + "urinalb  : "+cursor.getString(2) + "\n" +"toiletg  : "+ cursor.getString(3) + "\n" +"urinalg  : "+ cursor.getString(4) + "\n" +"toiletcw  : "+ cursor.getString(5) + "\n" +"toiletst  : "+cursor.getString(6);
 
                     }while (cursor.moveToNext());
 
