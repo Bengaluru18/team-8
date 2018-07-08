@@ -1,3 +1,5 @@
+
+
 package com.example.android.jpmc_cwp;
 
 import android.content.Intent;
@@ -7,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -14,7 +17,7 @@ import android.widget.Toast;
 public class HealthProgramActivity extends AppCompatActivity {
 
     SQLiteDatabase db;
-    Spinner s1,s2,s3,s4,s5,s6;
+    EditText s1,s2,s3,s4,s5,s6;
     Button b;
     int DISE;
     @Override
@@ -23,30 +26,24 @@ public class HealthProgramActivity extends AppCompatActivity {
         setContentView(R.layout.activity_health_program);
         Intent intent = getIntent();
         DISE = intent.getIntExtra("DISE_Code",0);
-		db=openOrCreateDatabase("cwf.db",MODE_PRIVATE,null);
-        db.execSQL("create table if not exists healthprogram(dise integer primary key, genaralCamp varchar(10),dentalCamp varchar(10),eyeCamp varchar(10),folic varchar(10),vitaminA varchar(10),deWorming varchar(10))");
-        s1= (Spinner)findViewById(R.id.spinner);
-        s2= (Spinner)findViewById(R.id.spinner2);
-        s3= (Spinner)findViewById(R.id.spinner3);
-        s4= (Spinner)findViewById(R.id.spinner4);
-        s5= (Spinner)findViewById(R.id.spinner5);
-        s6= (Spinner)findViewById(R.id.spinner6);
+        db=openOrCreateDatabase("cwf.db",MODE_PRIVATE,null);
+        db.execSQL("create table if not exists healthprogram(Davailibility varchar(10),Drequirement varchar(10),Dnew varchar(10),Eavailibility varchar(10),Erequirement varchar(10),Enew varchar(10))");
+        s1= (EditText) findViewById(R.id.editText5);
+        s2= (EditText) findViewById(R.id.editText6);
+        s3= (EditText) findViewById(R.id.editText7);
+        s4= (EditText) findViewById(R.id.editText4);
+        s5= (EditText) findViewById(R.id.editText8);
+        s6= (EditText) findViewById(R.id.editText9);
         b=(Button)findViewById(R.id.button);
         String[] items = new String[]{"Yes","No"};
         try {
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,items);
-            s1.setAdapter(adapter);
-            s2.setAdapter(adapter);
-            s3.setAdapter(adapter);
-            s4.setAdapter(adapter);
-            s5.setAdapter(adapter);
-            s6.setAdapter(adapter);
+
             b.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     //String s=s1.getSelectedItem().toString();
 
-                    db.execSQL("insert into healthprogram values('" + DISE + "','" + s1.getSelectedItem().toString() + "','" + s2.getSelectedItem().toString() + "','" + s4.getSelectedItem().toString() + "','" + s5.getSelectedItem().toString() + "','" + s6.getSelectedItem().toString() + "','" + s3.getSelectedItem().toString() + "');");
+                    db.execSQL("insert into healthprogram values('" + s1.getText().toString() + "','" + s2.getText().toString() + "','" + s3.getText().toString() + "','" + s4.getText().toString() + "','" + s5.getText().toString() + "','" + s6.getText().toString() + "');");
                     Toast.makeText(getApplicationContext(),"succesfully inserted", Toast.LENGTH_LONG).show();
                 }
             });
