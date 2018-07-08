@@ -44,16 +44,27 @@ public class SanitationActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    db.execSQL("insert into  sanitary values('"+ DISE+"','"+ed1.getText().toString()+"','"+ed2.getText().toString()+"', '"+ed3.getText().toString()+"', '"+ed4.getText().toString()+"', '"+ed5.getText().toString()+"', '"+ed6.getText().toString()+"');");
-                    String str = "Details are \n";
-                    Cursor c=db.rawQuery("select * from emp ",null);
-                    while (c.moveToNext()) {
-                        str+= c.getString(0) + "\n" + c.getString(1) + "\n";
+                    db.execSQL("insert into  sanitary values('"+ 100+"','"+ed1.getText().toString()+"','"+ed2.getText().toString()+"', '"+ed3.getText().toString()+"', '"+ed4.getText().toString()+"'," +
+                            " '"+ed5.getText().toString()+"', '"+ed6.getText().toString()+"');");
+                   String str = "";
+                    Cursor cursor = db.rawQuery("SELECT * FROM sanitary", null);
+                if(cursor.moveToFirst())
+                {
+                    do {
+                        str += "dise " +cursor.getString(0) + "\n" +"toiletb"+ cursor.getString(1) + "\n" + "urinalb"+cursor.getString(2) + "\n" +"toiletg"+ cursor.getString(3) + "\n" +"urinalg"+ cursor.getString(4) + "\n" +"toiletcw"+ cursor.getString(5) + "\n" +"toiletst"+cursor.getString(6);
+
+                    }while (cursor.moveToNext());
+
+                    Toast.makeText(getApplicationContext(),str,Toast.LENGTH_LONG).show();
+               //    String str = "Details are \n";
+                 //   Cursor c=db.rawQuery("select * from sanitary ",null);
+                   // while (c.moveToNext()) {
+                     //   str+= c.getString(0) + "\n" + c.getString(1) + "\n" +c.getString(2) + "\n" + c.getString(3) + "\n" +c.getString(4) + "\n" + c.getString(5) + "\n";
                     }
-                        Toast.makeText(getApplicationContext(),str,Toast.LENGTH_LONG).show();
-             //       Toast.makeText(getApplicationContext(),"Inserted Computer Lab Details successfully",Toast.LENGTH_LONG).show();
-                    //Intent i = new Intent(SanitationActivity.this,Main2Activity.class);
-                   // startActivity(i);
+
+            //  Toast.makeText(getApplicationContext(),"Inserted Computer Lab Details successfully",Toast.LENGTH_LONG).show();
+                //    Intent i = new Intent(SanitationActivity.this,Main2Activity.class);
+                  //  startActivity(i);
 
 
                 }
@@ -62,3 +73,5 @@ public class SanitationActivity extends AppCompatActivity {
         });
     }
 }
+
+
