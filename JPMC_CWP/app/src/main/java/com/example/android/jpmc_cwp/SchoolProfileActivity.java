@@ -4,12 +4,12 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 
 public class SchoolProfileActivity extends AppCompatActivity {
@@ -18,10 +18,11 @@ public class SchoolProfileActivity extends AppCompatActivity {
     String schoolName, schoolAddress, schoolLocality, schoolMedium, schoolState, totalClasses, schoolGender;
     int DISE, totalStudents, totalTeachers;
     EditText editName, editAddress, editState, editTotalStudents, editSchoolDISE, editTotalTeachers;
+    String toastMessage = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        db = openOrCreateDatabase("cwf2.db",MODE_PRIVATE,null);
-        db.execSQL("create table if not exists schoolprofile(name varchar(30),locality varchar(30),address varchar(150), state varchar(30), totalclasses varchar(20), gender varchar(10), mediumofinstruction varchar(20), totalstudents integer, dise integer primary key, totalteachers integer)");
+        db = openOrCreateDatabase("cwf.db",MODE_PRIVATE,null);
+        db.execSQL("create table if not exists schoolprofile(dise integer primary key, name varchar(30),locality varchar(30),address varchar(150), state varchar(30), totalclasses varchar(20), gender varchar(10), mediumofinstruction varchar(20), totalstudents integer, totalteachers integer)");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_school_profile);
 //        ActionBar ab = getActionBar();
@@ -65,20 +66,31 @@ public class SchoolProfileActivity extends AppCompatActivity {
                 schoolName = editName.getText().toString();
                 schoolAddress = editAddress.getText().toString();
                 schoolState = editState.getText().toString();
-                totalStudents = Integer.parseInt(editTotalStudents.getText().toString());
-                totalTeachers = Integer.parseInt(editTotalTeachers.getText().toString());
-                DISE = Integer.parseInt(editSchoolDISE.getText().toString());
                 schoolLocality = locality.getSelectedItem().toString();
                 schoolMedium = medium.getSelectedItem().toString();
                 totalClasses = spinnerTotalClasses.getSelectedItem().toString();
                 schoolGender = gender.getSelectedItem().toString();
-                Log.e("School Profile",schoolName+schoolAddress+schoolState+totalStudents+totalTeachers+DISE+schoolLocality+schoolMedium+totalClasses+schoolGender);
-                db.execSQL("insert into schoolprofile values('" + schoolName + "','" + schoolLocality + "','" + schoolAddress  + "','" +  schoolState  + "','" +  totalClasses  + "','" +  schoolGender  + "','" +  schoolMedium  + "','" +  totalStudents  + "','" +  DISE  + "','" +  totalTeachers + "')");
-
-                Intent i = new Intent(SchoolProfileActivity.this,Main2Activity.class);
-                i.putExtra("DISE_Code",DISE);
-                startActivity(i);
-
+                if(schoolName.equals("")||schoolAddress.equals("")||schoolState.equals("")||editTotalStudents.getText().equals("")||editTotalTeachers.getText().equals("")||editSchoolDISE.equals(""))
+                {
+                    Toast.makeText(getApplicationContext(),"Please fill the details completely",Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    totalStudents = Integer.parseInt(editTotalStudents.getText().toString());
+                    totalTeachers = Integer.parseInt(editTotalTeachers.getText().toString());
+                    DISE = Integer.parseInt(editSchoolDISE.getText().toString());
+                    db.execSQL("insert into schoolprofile values('" + DISE  + "','" + schoolName + "','" + schoolLocality + "','" + schoolAddress  + "','" +  schoolState  + "','" +  totalClasses  + "','" +  schoolGender  + "','" +  schoolMedium  + "','" +  totalStudents  + "','" + totalTeachers + "')");
+//                    Cursor c = db.rawQuery("select * from schoolprofile",null);
+//                    while(c.moveToNext()) {
+//                        toastMessage += c.getInt(0) + c.getString(1) + c.getString(2)+c.getString(3)+c.getString(4) + c.getString(5)+c.getString(6)+c.getString(7)+c.getInt(8)+c.getInt(9);
+//                         toastMessage += "\n";
+//                    }
+//
+                    Toast.makeText(getApplicationContext(),"Your information has been submitted successfully",Toast.LENGTH_LONG).show();
+                    Intent i = new Intent(SchoolProfileActivity.this,Main2Activity.class);
+                    i.putExtra("DISE_Code",DISE);
+                    startActivity(i);
+                }
             }
         });
     }
